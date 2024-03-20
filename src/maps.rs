@@ -1,6 +1,5 @@
 use core::num::TryFromIntError;
 
-//buf must be of even length
 fn byte_ops(buffer: &[u8]) -> Result<Vec<i16>, TryFromIntError> {
     let output_vec: Vec<i16> = buffer
         .iter()
@@ -19,7 +18,6 @@ fn byte_ops(buffer: &[u8]) -> Result<Vec<i16>, TryFromIntError> {
     Ok(output_vec)
 }
 
-// buf must be length multiple 8
 pub fn another_byte_operation(buffer: &[u8]) -> Vec<i16> {
     let output_vec: Vec<i16> = buffer
         .iter()
@@ -30,7 +28,6 @@ pub fn another_byte_operation(buffer: &[u8]) -> Vec<i16> {
 }
 
 
-// buf must be even length of multiple 3
 pub fn last_one_i_promise(buffer: &[u8]) -> Vec<i16> {
     let output_vec: Vec<i16> = buffer
     .chunks_exact(3)
