@@ -20,7 +20,7 @@ fn byte_ops(buffer: &[u8]) -> Result<Vec<i16>, TryFromIntError> {
 }
 
 // buf must be length multiple 8
-fn another_byte_operation(buffer: &[u8]) -> Vec<i16> {
+pub fn another_byte_operation(buffer: &[u8]) -> Vec<i16> {
     let output_vec: Vec<i16> = buffer
         .iter()
         .flat_map(|&byte| (0..8).map(move |i| ((i16::from(byte) >> i) & 1).wrapping_neg()))
@@ -31,7 +31,7 @@ fn another_byte_operation(buffer: &[u8]) -> Vec<i16> {
 
 
 // buf must be even length of multiple 3
-fn last_one_i_promise(buffer: &[u8]) -> Vec<i16> {
+pub fn last_one_i_promise(buffer: &[u8]) -> Vec<i16> {
     let output_vec: Vec<i16> = buffer
     .chunks_exact(3)
     .flat_map(|chunk| chunk.windows(2).enumerate())
